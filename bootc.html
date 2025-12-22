@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BootScript Compiler</title>
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: 'Courier New', monospace;
+      background-color: #0b0f3f;
+      color: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    h1 {
+      color: #ff6700;
+      text-align: center;
+      font-size: 2.5rem;
+      margin: 0.5rem 0;
+      flex-shrink: 0;
+    }
+
+    .container {
+      display: flex;
+      gap: 1rem;
+      flex: 1 1 auto; /* take remaining space */
+      padding: 0 1rem 1rem 1rem; /* some padding inside container */
+      box-sizing: border-box;
+    }
+
+    textarea {
+      flex: 1;
+      padding: 1rem;
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+      background-color: #1b1f5f;
+      color: #e0e0e0;
+      border: 1px solid #333;
+      border-radius: 6px;
+      box-shadow: inset 0 0 5px #000;
+      resize: none;
+      height: 100%; /* fill container height */
+      box-sizing: border-box;
+    }
+
+    textarea[readonly] {
+      background-color: #2a2e6f;
+      color: #cccccc;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>BootScript Compiler</h1>
+
+  <div class="container">
+    <textarea id="input" placeholder="Write your code here..."></textarea>
+    <textarea id="output" readonly placeholder="Compiled code will appear here..."></textarea>
+  </div>
+
+  <script src="src/main.js"></script>
+
+  <script>
+    var output = document.getElementById("output");
+
+    document.getElementById("input").oninput = function (event) {
+      output.textContent = bootc.compile(event.target.value);
+    }
+  </script>
+</body>
+
+</html>
