@@ -25,3 +25,6 @@ The versioning system of BootScript is split into three categories:
 - **Chapter**  
   This is a subpatch. It means the commit makes changes to the language that don't alter its current formal state.  
   Due to this, all commits before the first Canto are chapters, as they don't alter the formal state of the language.
+
+- **Citation**
+  This is a change in the language's design documents that entails what a correct implementation of the language should include.
