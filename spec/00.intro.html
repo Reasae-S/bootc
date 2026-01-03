@@ -4,12 +4,113 @@
     <title>Chapter 0: Introduction</title>
     <style>
       body {
-        background-color: black;
-        color: white;
+        background-color: #111111;
+        color: #CCCCCC;
+        font-family: Arial, Helvetica, sans-serif;
       }
     </style>
   </head>
   <body>
     <h1>Chapter 0: Introduction</h1>
+    <h2>0.1 Specification Terminology</h2>
+    <p>
+      
+      Terminal symbols are shown in <tt><b>&nbsp;bold, fixed-width&nbsp;</b></tt> font.
+      The definition of a terminal symbol appears in the productions of the lexical and syntactic grammars,
+      and whenever the text directly refers to such a symbol in this specification.
+      A terminal symbol must appear in a program exactly as written.<br><br>
+
+      Nonterminal symbols are shown in <tt><b><i>&nbsp;italic, bold, fixed-width&nbsp;</i></b></tt> font.
+      The definition of a nonterminal is introduced by the name of the nonterminal followed by a colon.
+      One or more alternative right-hand sides for the nonterminal then follow on succeeding lines.<br><br>
+
+      For example, the syntactic definition:<br><br>
+      
+      <tt><b>
+        &nbsp;&nbsp;<i>LoopStatement</i>:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;loop <i>Statement</i>
+      </b></tt><br><br>
+      
+      states that the nonterminal <i>LoopStatement</i> represents the token <b>loop</b>, 
+      followed by a <b><i>Statement</i></b>.<br><br>
+
+      Another example:<br><br>
+      
+      <tt><b>
+        &nbsp;&nbsp;<i>ArgumentList</i>:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<i>Argument</i><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<i>ArgumentList</i> , <i>Argument</i>
+      </b></tt><br><br>
+      
+      This shows that an <i>ArgumentList</i> may represent either a single <i>Argument</i> or an <i>ArgumentList</i> followed by a comma and an <i>Argument</i>.
+      This definition is recursive, 
+      meaning an <i>ArgumentList</i> may contain any positive number of arguments.<br><br>
+
+      The informal grammar in this specification is bottom-up and left-recursive. A complete top-down,
+      right-recursive grammar with disambiguation rules is included in an appendix.<br><br>
+
+      The subscripted suffix <b><sub>opt</sub></b>, 
+      which may appear after a terminal or nonterminal, 
+      indicates an optional symbol. For example:<br><br>
+      
+      <tt><b>
+        &nbsp;&nbsp;<i>ReturnStatement</i>:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return <i>Expression</i><sub>opt</sub>
+      </b></tt><br><br>
+
+      is an abbreviation for:<br><br>
+      
+      <tt><b>
+        &nbsp;&nbsp;<i>ReturnStatement</i>:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return <i>Expression</i>
+      </b></tt><br><br>
+
+      When the underlined word "either" follows the colon in a grammar definition, 
+      it signifies that each of the terminal symbols or tokens on the following lines is an alternative definition. 
+      For example:<br><br>
+      
+      <tt><b>
+        &nbsp;&nbsp;<i>OctalDigit</i>:
+      </b>
+      <u>either</u><br>
+      <b>
+        &nbsp;&nbsp;&nbsp;&nbsp;0 1 2 3 4 5 6 7
+      </b></tt><br><br>
+
+      which is equivalent to writing each number on its own line.<br><br>
+
+      Lexical definitions may exclude certain expansions using the underlined word "except" for example:<br><br>
+      
+      <tt>
+        <b>
+          &nbsp;&nbsp;<i>Identifier</i>:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<i>IdentifierName</i>,
+        </b>
+        <u>except</u>
+        <b>
+          <i>ReservedKeyword</i>, 
+          <i>Digit</i>
+        </b>
+      </tt><br><br>
+
+      Some nonterminals are defined descriptively when listing all alternatives is impractical. For example:<br><br>
+      
+      <tt><b>
+        &nbsp;&nbsp;<i>RawInputCharacter</i>:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+      </b></tt>
+      any ASCII character
+
+      <!-- 
+        You may notice that, in accordance with this ruleset,
+        it is particularly hard to write descriptive definitions.
+        This is due to HTML being used to write the documentation,
+        and is intended behavior. 
+        
+        Descriptive definitions should only be used as a last resort.
+      -->
+    
+    </p>
   </body>
 </html>
